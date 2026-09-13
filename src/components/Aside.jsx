@@ -6,7 +6,7 @@ import { FaPlus } from "react-icons/fa6";
 
 import { useEffect } from 'react';
 
-export default function Aside({home, away, second, minute, onRestart}){
+export default function Aside({home, away, second, minute, onRestart, propsTurn}){
 
     return (
         <>
@@ -20,30 +20,30 @@ export default function Aside({home, away, second, minute, onRestart}){
                 </div>
                 <div className="score">
                     <div className="home">
-                        <span>You</span>
+                        <span>Joueur 1</span>
                         <span>{home}</span>
                     </div>
                     <div className="mid">-</div>
                     <div className="away">
-                        <span>AI</span>
+                        <span>Joueur 2</span>
                         <span>{away}</span>
                     </div>
                 </div>
                 <div className="bottom">
-                    <div className="content">Your Turn</div>
+                    <div className='content' style={{ background: propsTurn ? '#4d8eff' : '#ff4d4d' }}>À vous</div>
                 </div>
             </div>
 
             <div className="controls">
                 <span>Controls</span>
                 <button className='active'>
-                    <RiArrowGoBackFill />Undo Move
+                    <RiArrowGoBackFill />Revenir
                 </button>
-                <button onClick={onRestart(true)}>
-                    <VscDebugRestart />Restart Match
+                <button onClick={() => onRestart(true)}>
+                    <VscDebugRestart />Recommencer
                 </button>
                 <button>
-                    <FaPlus />New Game
+                    <FaPlus />Nouvelle Partie
                 </button>
             </div>
 

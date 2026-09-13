@@ -91,7 +91,7 @@ aside{
                 font-weight: 600;
                 text-align: center;
                 padding: 0.75rem 1.5rem;
-                background: rgb(77, 142, 255);
+                /* background: rgb(255, 77, 77); */
                 width: 100%;
                 border-radius: 9999px;
             }

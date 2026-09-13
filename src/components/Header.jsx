@@ -6,7 +6,7 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 export default function Header() {
     return (
         <>
-        <header>
+        <header className='shadow'>
             <div className="title">Trinity</div>
             <nav>
                 <ul>

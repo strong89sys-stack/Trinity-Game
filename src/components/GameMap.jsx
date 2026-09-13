@@ -4,7 +4,7 @@ import { FaRegCircle } from "react-icons/fa";
 
 import { useState, useEffect } from 'react'
 
-export default function GameMap({rules, onWin, reset}){
+export default function GameMap({rules, onWin, reset, propsTurn}){
 
     const [cells, setCells] = useState(Array(9).fill(null))
     const [turn, setTurn] = useState(true)
@@ -18,12 +18,14 @@ export default function GameMap({rules, onWin, reset}){
 
         setCells(newCells)
         setTurn(!turn)
+        propsTurn(turn)
 
         // Vérification de la victoire à ce coup
         const winResult = checkWinner(newCells)
         if (winResult) {
             setWinner(winResult)
             onWin(winResult) // On remonte l'info au parent !
+            propsTurn(false)
         } else {
             setTurn(!turn)
         }

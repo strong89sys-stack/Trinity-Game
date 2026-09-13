@@ -9,6 +9,7 @@ export default function GamePage() {
     const [homeScore, setHomeScore] = useState(0)
     const [awayScore, setAwayScore] = useState(0)
     const [restart, setRestart] = useState(false)
+    const [turn, setTurn] = useState(false)
 
     const victoryRules = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -51,8 +52,8 @@ export default function GamePage() {
         <>
         <Header />
         <section className="game-page">
-            <Aside home={homeScore} away={awayScore} second={secondPassed} minute={minutePassed} onRestart={() => handleRestart} />
-            <GameMap rules={victoryRules} onWin={handleWin} reset={restart} />
+            <Aside home={homeScore} away={awayScore} second={secondPassed} minute={minutePassed} onRestart={() => handleRestart} propsTurn={turn} />
+            <GameMap rules={victoryRules} onWin={handleWin} reset={restart} propsTurn={(set) => {setTurn(set)}} />
         </section>
         </>
     )
